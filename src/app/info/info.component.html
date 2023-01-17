@@ -1,0 +1,37 @@
+
+<div class="text-center">
+  <h2 class="text-center p-4">Your Information</h2>
+
+  <label for=""><h5>Name :- </h5></label>
+  <input  class="w-50 p-2" type="text" placeholder="name" value="{{ name }}" (input)="show1($event)">
+  <br>
+
+  <button class="btn btn-primary mt-2" (click)="submit()">Submit</button> <br>
+  <hr>
+
+  <label for=""><h5>Age :- </h5></label>
+  <input class="w-50 p-2" type="number" placeholder="age" (input)="show3($event)">
+  <br>
+
+  <button  class="btn btn-primary mt-2" (click)="submit1()">Submit</button>
+
+  <h6  class="text-danger mt-3" *ngIf="eligible"> *Enter your age above & we will tell you your eligibility criteria for voting </h6>
+
+  <h5 class="mt-3"> {{eligibility}} </h5>
+  <hr>
+
+
+  <label for=""><h5>Qualification :- </h5></label>
+
+  <select class="p-2 ms-4" [(ngModel)]="selectedCategory" (change)="categoryChanged()">
+    <option *ngFor="let c of category" value="{{c}}">{{c}}</option>
+  </select>
+
+  <select class="p-2 ms-4" [(ngModel)]="selectedJob">
+    <option *ngFor="let j of job" value="{{j}}">{{j}}</option>
+  </select>
+
+  <h5 class="mt-3">You have Choices like :- {{job}}</h5>
+
+
+</div>
